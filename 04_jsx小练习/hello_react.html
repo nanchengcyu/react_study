@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello,React study by nanchengyu</title>
+</head>
+<body>
+<div id="test"></div>
+<!--引入React核心库 引入顺序有要求必须按照下方1在2前-->
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">  /*此处一定要写babel*/
+//模拟数据
+const data = ['nanchengyu', 'react', 'vue']
+//1.创建虚拟DOM
+const VDOM =( <div>
+    <h1>Hello,React</h1>
+    <ul>
+        {
+            data.map((item, index) => {
+                return <li key={index}>{item}</li>
+            })
+        }
+    </ul>
+</div>
+)
+//2.渲染虚拟DOM到页面
+ReactDOM.render(VDOM, document.getElementById('test'))
+
+
+</script>
+
+
+</body>
+</html>
