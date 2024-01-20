@@ -21,50 +21,41 @@
 
 * */
 //1.创建类组件
-class Life extends React.Component {
-
+class Login extends React.Component {
     //初始化状态
-    //生命周期回调函数 《=》生命周期钩子函数
-    state = {opacity: 1}
-    death = () => {
-        //卸载组件
-        ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+    state = {
+        username: '',
+        password: ''
+    }
+    //保存表单数据到状态中    //方法体
+    saveFormData = (dataType, event) => {
+
+        this.setState({[dataType]: event.target.value})
 
     }
 
-    //组件挂载完毕
-    componentDidMount() {
-       this.timer = setInterval(() => {
-            //读取原状态
-            let {opacity} = this.state
-            //减小0.1
-            opacity -= 0.1
-            if (opacity <= 0) opacity = 1
-            //设置新的透明度
-            this.setState({opacity})
-        }, 200);
 
-    }
-    //组件将要被卸载
-    componentWillUnmount(){
-        //清除定时器
-        clearInterval(this.timer)
+    //方法体 表单的回调
+    handleSubmit = (event) => {
+        event.preventDefault() //阻止表单提交
+        const {username, password} = this.state
+        alert(`你输的用户名是：${username},密码是：${password}`)
     }
 
 
-    //初始化渲染、状态更新之后
     render() {
-
         return (
-            <div>
-                <h2>React学不会啊？</h2>
-                <button onClick={this.death}>摆烂吧不学了</button>
-            </div>
+            <form onSubmit={this.handleSubmit}>
+                username:<input onChange={event => this.saveFormData('username', event)} type="text" name="username"/>
+                password:<input onChange={event => this.saveFormData('password', event)} type="password"
+                                name="password"/>
+                <button>login</button>
+            </form>
         )
     }
 }
 
-ReactDOM.render(<Life/>, document.getElementById("test"))
+ReactDOM.render(<Login/>, document.getElementById("test"))
 </script>
 
 
