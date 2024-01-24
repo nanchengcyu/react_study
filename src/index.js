@@ -5,5 +5,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //引入App
 import App from './App';
+//引入路由组件
+import {BrowserRouter} from "react-router-dom";
 
-ReactDOM.render(<App/>,document.getElementById('root'))
+ReactDOM.render(
+    <BrowserRouter><App/></BrowserRouter>, document.getElementById('root'))
