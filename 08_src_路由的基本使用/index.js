@@ -5,8 +5,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //引入App
 import App from './App';
-
-
 //引入路由组件
 import {BrowserRouter} from "react-router-dom";
 

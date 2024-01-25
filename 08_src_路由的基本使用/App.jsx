@@ -1,10 +1,9 @@
 import React, {Component} from "react";
-import {NavLink, Redirect} from "react-router-dom";
-
+import {Link} from "react-router-dom";
+import About from "./components/About";
+import Home from "./components/Home";
 import Route from "react-router-dom/es/Route";
-import Home from "./pages/Home";
-import About from "./pages/About";
-
+// import "./App.css";
 
 export default class App extends Component {
     //初始化状态
@@ -36,9 +35,11 @@ export default class App extends Component {
                 <div className="row">
                     <div className="col-xs-2 col-xs-offset-2">
                         <div className="list-group">
+                            {/*<a className="list-group-item" href="./about.html">About</a>*/}
+                            {/*<a className="list-group-item active" href="./home.html">Home</a>*/}
 
-                            <NavLink className="list-group-item " to="/about">About </NavLink>
-                            <NavLink className="list-group-item " to="/home">Home </NavLink>
+                            <Link className="list-group-item active" to="/about">About </Link>
+                            <Link className="list-group-item active" to="/home">Home </Link>
                         </div>
                     </div>
                     <div className="col-xs-6">
@@ -46,7 +47,6 @@ export default class App extends Component {
                             <div className="panel-body">
                                 <Route path="/about" component={About}/>
                                 <Route path="/home" component={Home}/>
-                                <Redirect to="/about"/>
                             </div>
                         </div>
                     </div>
