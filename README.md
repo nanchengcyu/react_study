@@ -41,3 +41,8 @@
 ### 八、向路由组件传递参数
 ![img_6.png](img_6.png)
 
+### 九、编程式路由导航
+![img_7.png](img_7.png)
+
+### 十、BrowserRouter与HashRouter的区别
+![img_8.png](img_8.png)
